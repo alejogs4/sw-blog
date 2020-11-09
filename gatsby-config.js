@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Alejandro García Serna`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Alejandro García Serna`,
+      summary: `Thoughts about software engineering and life`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    description: `Thoughts about software engineering and life`,
+    siteUrl: `https://alejandrogarciaserna.com`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `alejogs4`,
     },
   },
   plugins: [
@@ -60,11 +60,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Alejandro García Serna`,
+        short_name: `Alejandro García`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#A62D25`,
         display: `minimal-ui`,
         icon: `content/assets/gatsby-icon.png`,
       },

@@ -54,11 +54,11 @@
   --fontSize-5: 2.074rem;
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
-  --color-primary: #005b99;
+  --color-primary: #A62D25;
   --color-text: #2e353f;
   --color-text-light: #4f5969;
   --color-heading: #1a202c;
-  --color-heading-black: black;
+  --color-heading-black: #A62D25;
   --color-accent: #d1dce5;
 }
 
@@ -250,10 +250,6 @@ a:focus {
   margin-bottom: var(--spacing-20);
 }
 
-.global-header {
-  margin-bottom: var(--spacing-12);
-}
-
 .main-heading {
   font-size: var(--fontSize-7);
   margin: 0;
@@ -287,12 +283,17 @@ a:focus {
 }
 
 .bio {
-  display: flex;
   margin-bottom: var(--spacing-16);
 }
 
 .bio p {
   margin-bottom: var(--spacing-0);
+}
+
+.bio-avatar-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-8);
 }
 
 .bio-avatar {
