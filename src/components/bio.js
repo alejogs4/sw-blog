@@ -1,13 +1,6 @@
-/**
- * Bio component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+// import Image from "gatsby-image"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -31,13 +24,13 @@ const Bio = () => {
         }
       }
     }
-  `)
+  `);
 
   // Set these values by editing "siteMetadata" in gatsby-config.js
-  const author = data.site.siteMetadata?.author
-  const social = data.site.siteMetadata?.social
+  const author = data.site.siteMetadata?.author;
+  const social = data.site.siteMetadata?.social;
 
-  const avatar = data?.avatar?.childImageSharp?.fixed
+  // const avatar = data?.avatar?.childImageSharp?.fixed
 
   return (
     <header className="bio">
@@ -55,17 +48,21 @@ const Bio = () => {
       </div> */}
       {author?.name && (
         <>
-        <p>
-          {author?.summary || null}
-          {` `}
-        </p>
-        <a href={`https://twitter.com/${social?.twitter || ``}`}>
-          Twitter
-        </a>
-      </>
+          <p>
+            {author?.summary || null}
+            {' '}
+          </p>
+          <a href={`https://twitter.com/${social?.twitter || ''}`}>
+            Twitter
+          </a>
+          {' '}
+          <a href={`https://github.com/${social?.github || ''}`}>
+            Github
+          </a>
+        </>
       )}
     </header>
-  )
-}
+  );
+};
 
-export default Bio
+export default Bio;
