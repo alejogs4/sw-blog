@@ -24,11 +24,11 @@ const Layout = ({ location, title, children }) => {
     <div className="global-wrapper" data-is-root-path={isRootPath}>
       <header className="global-header">{header}</header>
       <main>{children}</main>
-      <footer>
+      {/* <footer>
         ©
         {' '}
         {new Date().getFullYear()}
-      </footer>
+      </footer> */}
     </div>
   );
 };
