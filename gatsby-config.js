@@ -54,7 +54,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        // trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: 'G-8PLGVCQV4P',
       },
     },
     'gatsby-plugin-feed',
@@ -67,10 +67,10 @@ module.exports = {
         background_color: '#ffffff',
         theme_color: '#A62D25',
         display: 'standalone',
-        icon: 'content/assets/gatsby-icon.png',
+        icon: 'content/assets/icon.png',
       },
     },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-offline',
   ],
-};
+}
