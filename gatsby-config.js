@@ -70,7 +70,14 @@ module.exports = {
         icon: 'content/assets/icon.png',
       },
     },
+    {
+      resolve: 'gatsby-plugin-i18n',
+      options: {
+        langKeyDefault: 'en',
+        useLangKeyLayout: false,
+      },
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-offline',
   ],
-}
+};

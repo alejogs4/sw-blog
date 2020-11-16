@@ -1,10 +1,10 @@
 ---
-title: Why redux was / is still important
+title: Por qué redux fue o es todavia importante
 permalink: '/redux-importance'
 date: '2020-11-16T22:12:03.284Z'
-description: 'The tools we used shape how we think about code'
+description: 'Las herramientas que usamos forman como pensamos acerca del código.'
 published: true
-langKey: en
+langKey: es
 ---
 
 In the last few years with the release of React hooks, the React commununity has made a progresively migration to more built-in state management tools,
