@@ -1,32 +1,32 @@
 ---
-title: Por qué redux fue o es todavia importante
+title: Por qué redux es todavia importante
 permalink: '/redux-importance'
-date: '2020-11-16T22:12:03.284Z'
-description: 'Las herramientas que usamos forman como pensamos acerca del código.'
+date: '2020-11-23T22:12:03.284Z'
+description: 'Nuestras herramientras influencian la forma en que pensamos'
 published: true
 langKey: es
 ---
 
-In the last few years with the release of React hooks, the React commununity has made a progresively migration to more built-in state management tools,
-commonly using useReducer and context, but once Flux arquitecture was popularized by its most popular implementation (Redux), the way we developed our applications changed (hopefully for good).
+En los ultimos años con el lanzamiento de los React hooks, la comunidad de React ha progresivamente migrado a soluciones de manejo de estado propias de la libreria, usualmente usando `useReducer` y context, sin embargo una vez la arquitectura Flux fue popularizada por su implementaciòn màs popular (Redux), la forma en que desarrollamos nuestras aplicaciones cambio (espero que para bien).
 
-Let's begin with this Dijkstra's quote
+Comencemos con esta frase de Dijkstra
 
-> It is not only the violin that shapes the violinist, we are all shaped by
-> the tools we train ourselves to use, and in this respect programming
-> languages have a devious influence: they shape our thinking habits.
+> Es no solo el violin quien hace al violinista, todos nosotros somos influenciados por
+> las herramientas que usamos, y de igual forma los lenguajes de 
+> programación tienen una gran influencia sobre nuestros habitos de pensamiento.
 
-A person who has been building Java applications for a long time, could see a program as a composition of classes and packages, modeling the real world. The same idea applies to Redux too, Flux and Redux came up with new ways and ideas of how frontend applications should manage its state, state management where:
+Un desarrollador que ha estado construyendo aplicacions con Java por un tiempo puede que vea una aplicación como la composición de clases y paquetes, modelando asi el mundo real. Esta misma idea aplica para Redux, Flux y Redux llegaron con nuevas ideas de como las aplicaciones frontend deberian manejar su estado, un manejo de estado donde:
 
-- Pure functions where mandatory (reducers)
-- Perform state changes throught user events (actions)
-- Reduce coupling between React components and state shape through selectors and action creators
+- Las funciones puras son obligatorias (reducers)
+- Realizar el cambio de estado por medio de eventos del usuario (acciones)
+- Reducir el acomplamiento entre nuestros componentes y la forma del estado por medio de selectores y action creators.
 
-These ideas despite being at the core of Redux philoshopy, can be applied at any application even if it's not using Redux, or even Javascript, and at any kind of application can bring benefits and improvements in maintanibility.
+Estas ideas apesar de ser parte de la filosofía de Redux, puede ser aplicada en cualquier aplicación incluso si esta no esta usando Redux e incluso si no esta usando Javascript, cualquier aplicación puede beneficiarse de estos conceptos.
 
-## Pure functions
+## Funciones puras
 
-Pure functions are functions which as long as they are called with the same parameters, returns the same value without affect any value outside the function's scope. This concept appears in Redux in the form of **reducers**.
+Las funciones puras son funciones que mientras sean llamadas con los mismos parametros retornaran el mismo valor sin afectar los valores que estan afuera del scope o alcance de la función. Este concepto aparece en Redux en la forma de **reducers**.
+
 
 ```javascript
 function addNameProperty(object, name) {
@@ -38,12 +38,11 @@ function addNameProperty(object, name) {
 
 addNameProperty({ age: 21 }, 'Alejandro') // { age: 21, name: 'Alejandro' }
 ```
+Esta función es pura por que mientras reciba los mismos parametros, esta función retornara el mismo valor, ademas no estamos afectando el objeto pasado por parametro, aplicando **immutability**, el objeto no es cambiado, en base a el creamos un nuevo valor, esto es muy poderoso por dos razones.
 
-This function it's pure since meanwhile I pass the same parameters, this function will return the same value, besides we are not affecting passed object applying **immutability** past it's not changed in based to it we create a new value, this is powerful for two reasons
+### Facíl de probar
 
-### Easy to test
-
-Since every call will produce the same result our test requires less setup to work properly and are more deterministic
+Dado que cada llamada produce el mismo resultado, nuestras pruebas necesitan de menos configuración para funcionar de manera adecuada y estas pruebas son mas deterministicas.
 
 ```javascript
 test('Should add name property to passed object', () => {
@@ -60,11 +59,12 @@ test('Should add name property to passed object', () => {
 })
 ```
 
-The below test will always run as a succesful one, and being aware of this bring us the next advantage
+El test anterior siempre correra exitosamente, y ser consciente de esto nos trae la siguiente ventaja.
 
-### Reduce cognitive load and complexity
+### Reduce la carga cognitiva y complejidad.
 
-How much you need to dig into your code to see how it works? take a look at this
+¿Cuando necesitas revisar tu código para ver  como funciona?
+
 
 ```javascript
 const object = { id: 1 }
@@ -80,18 +80,18 @@ doStuff(object)
 console.log(object)
 ```
 
-If I tell you that doStuff is not pure and neither executing the code nor looking at doStuff implementation, could you be sure that `object` is still the same?. No, you couldn't and this need of run the code or review doStuff adds cognitive load and complexity since your application it's harder to reason about when makes you pay attention to more details and values that you are supposed at the moment.
+Si te digo que `doStuff()` no es pura y sin ejecutar el código ni revisando la implementación `doStuff()`, podrias estar seguro que `object` sigue siendo el mismo? la respuesta es que no puedes estar seguro, y esta inseguridad, la necesidad de correr el código o de revisar cada detalle agrega carga cognitiva y complejidad ya que tu aplicación se vuelve más dificil de razonar ya que tienes que prestar atención a más detalles al mismo tiempo que los que supone.
 
-But what happen if unlike to previous case, I tell you that doStuff functions it's pure? you can be sure that `object` is `{id: 1}` this is a simple but powerful, and it's the main reason why Redux and React help us to get deterministic renders, given that threat UI as a **pure function of application state**.
+Pero que pasa si a diferencia del caso anterior te digo que `doStuff()` es pura? puedes estar seguor que `object` es `{id: 1}`, esto es simple pero poderoso, y es la principal razón del por que Redux y React nos ayudan a conseguir renderizados deterministicos, ya que trata nuestra interfaz de usuario como **el resultado de una función pura del estado de la aplicación**.
 
-### State changes as user events
+### Cambios de estado como eventos del usuario
 
-In our application given our businesses our users will perform some actions over our applications, these actions suddenly will be reflected on the screen, these two concepts (action - consequence) are everywhere in software development
+Dado nuestros negocios los usuarios realizaran ciertas acciones sobre nuestras aplicaciones, estas acciones eventualmente se veran reflejadas sobre la pantalla, estos dos conceptos (acción - consecuencia) estan en todas partes en el desarrollo de software.
 
-- user buy -> email sending
-- match score -> mobile notification
+- Compra del usuario -> Envio de email
+- Nuevo puntaje -> Notificación movil
 
-How handle this an interesting topic in software engineering, usually a way to handle it it's perform the business operation and dispatch events with the data of the operation just performed this event will be listened by a **n** number of handlers. Where those are, or what they do it's not the business of the calling place, this is important because reduce **coupling** between calling place and event handlers.
+Como manejar esta información es un tema muy interesante en ingenieria de software, usualmente se maneja esto realizando la operación de negocio y despachando eventos con la información de la operación recien realizada, este evento o cambio de información sera escuchado por un **n** numero de manejadores. Donde estos manejadores estan o que hacen esta fuera del conocimiento del lugar de llamada, esto es importante por que reduce el **acoplamiento** entre el lugar de llamada y los manejadores de eventos.
 
 ```javascript
 // Component.jsx -> calling place
@@ -113,19 +113,19 @@ function reducer(state = [], action) {
 }
 ```
 
-There are a plenty number of libraries in Javascript ecosystem which help us to implement this patterns, but the most popular ones are RxJS and built in node event emitter.
+Hay varias librerias en el ecosistema de Javascript que nos ayuda a implementar estos patrones, pero las más populares son RxJS y el event emitter de Nodejs
 
-Redux it's not the most event driven library out there but conceptually you can handle it similarly.
+Redux en si mismo no es una libreria para basarse en eventos pero conceptualmente puede manejarse de una forma similar, dado que puede ser visto como una implementación del [patron observer](https://refactoring.guru/design-patterns/observer) since it can be seen as an implementation of the [obsever pattern](https://refactoring.guru/design-patterns/observer) donde un **n** numero de objetos (componentes) están conectados al estado escuchando los cambios que este tenga, tomando al estado de Redux como una unica fuente de verdad.
 
-### Reduce coupling hidding information using selectors and action creators
+### Reduce acoplamiento ocultando información usando selectores y action creators
 
-The main measure of a good abstraction it's how effectively hides information from us, the better this is accomplished the better we can focus in a single task at the time, besides hide information properly reduce coupling between abstraction and the place where it's used, reducing also the places where changes will be made and how wide the impact of these changes will be.
+La principal medida de una buena abstracción es que tan efectivamente nos oculta información, mientras mejor esto sea conseguido mejor nos podemos enfocar en una sola tarea al mismo tiempo, además ocultar información de una forma adecuada, reduce acoplamiento entre la abstracción y el lugar donde esta es usada, reduce tambien los lugares donde los cambios se hacen y que tan grande sera el impacto de estos cambios.
 
-Selectors and action creators help us to get the above goal, hidding the state shape and events nature.
+Selectores y action creators nos ayudan a conseguir el objetivo anterior ocultando la forma del estado y la naturaleza de los eventos.
 
-### Selectors
+### Selectores
 
-Selectors in Redux are simply functions which receives the state and returns a subset of the state.
+Selectores en Redux son simplemente funciones que reciben el estado y retornan una porción de ese estado.
 
 ```javascript
 // Selector
@@ -140,11 +140,11 @@ function ProjectList() {
 }
 ```
 
-Imagine that you have to use this information several times through your application and saddly you are not using selectors, if in a refactor state shape change to something like this `state.assignments`, you would have to change it in every single place, breaking your application because your components were too aware of how state looks like, with selectors, state shape is information which it's hidden behind these selectors, making selectors a single place of change if state shape change, making your application more resilient, easier to maintain, refactor and extend.
+Imagina que tienes que usar esta información en distintos sitios a lo largo de tu aplicación y tristemente no estas usando selectores, si un refactor cambia la forma del estado a algo como `state.assignments`, tendrias que cambiarlo en cada uno de esos lugares, rompiendo tu aplicación por que los componentes sabián demasiado de como lucía el estado, en cambio con selectores, la forma del estado es una información que esta oculta detrás de estos selectores, haciendo selectores un unico lugar de cambio si la forma del estado cambia, haciendo tu aplicación más resiliente, facíl de mantener, refactorizar y extender.
 
 ### Action creators
 
-Action creators were sold as a way to avoid errors when we want to change our state, however that for me looks as a arguments that could be develop further, think about your components and how much they know about your state, with the same argument brought to say that selectors are important we can say the same about action creators. Action creators **hide** information, hide how our state will be changed and what it's all the information necessary to succesfully perform this update, this information hidding help us to think about the information to change instead of the type of the change, making our cognitive load easier to manage and in the long term making our changing places easier to mantain.
+Action creators fueron vendidos como una forma de evitar errores cuando queremos cambiar nuestro estado, sin embargo creo ese argumento puede ser desarrollado un poco más, piensa en tus componentes y cuanto ellos saben acerca de tu estado, con el mismo argumento que usamos para decir que los selectores son importantes, podemos decir lo mismo acerca de los action creators. Los action creators **ocultan** información, ocultan como nuestro estado sera cambiado como cual es toda la información necesaria para exitosamente realizar esta actualización, este ocultamiento de información nos ayuda a pensar acerca de la información a cambiar en lugar de la naturaleza del cambio, haciendo que la carga cognitiva sea más facil de manejar y en el largo plazo haciendo estas operaciones más faciles de mantener.
 
 ```javascript
 function ProjectList() {
@@ -162,10 +162,13 @@ function ProjectList() {
 }
 ```
 
-Here we are no thinking neither about what type of change we are performing nor what extra data we need through calculation, we are simply sending the new message, which at the time it's a single detail to care about.
+Aqui no estamos pensando acerca de ni de que tipo de cambio estamos realizando, ni que información extra necesitamos calcular, simplemente estamos enviando el nuevo mensaje, lo cual es el unico detalle que nos concierne.
 
-## Conclusions
+Tanto los selectores como los action creators pueden ser llevados a otros lenguajes cuando hablamos de metodos de acceso y metodos para la transformación de datos, en el mundo de [ADT](https://en.wikipedia.org/wiki/Abstract_data_type#:~:text=In%20computer%20science%2C%20an%20abstract,the%20behavior%20of%20these%20operations.) nosotros modelamos el acceso a estructura de datos y los cambios sobre esas estructuras de una forma abstracta, conseguimos esa información, ¿como es conseguida? realmente no importa, el lugar donde esta abstracción es usada no le importa este detalle, y lo mismo aplica para los metodos que nos ayudan a cambiar información.
 
-I know these concepts can be learned with other libraries or languages but that's exactly the point Redux brought these concepts to our frontend applications and even when you are not using Redux in your projects as I am, you can still use them, with all the beneficies those concepts give you.
 
-I hope you enjoyed it and any doubt or improvement let me know
+## Conclusiones
+
+Yo se que estos conceptos pueden ser aprendidos con otras librerias o lenguajes pero ese es exactamente el punto, Redux trajo estos conceptos y nos puso a pensar sobre ellos en nuestras aplicaciones frontend, e incluso si ahora mismo no usas Redux en tus proyectos asi como yo, puedes todavia usarlos con todos los beneficios que te dan.
+
+Espero que lo disfrutado y cualquier duda o mejora dejame saber.
