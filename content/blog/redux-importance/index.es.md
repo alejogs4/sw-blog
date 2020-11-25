@@ -80,7 +80,7 @@ doStuff(object)
 console.log(object)
 ```
 
-Si te digo que `doStuff()` no es pura y sin ejecutar el código ni revisando la implementación de `doStuff()` ¿podrías estar seguro que `object` sigue siendo el mismo? la respuesta es que no puedes estar seguro, y esta inseguridad, la necesidad de correr el código o de revisar cada detalle agrega carga cognitiva y complejidad ya que tu aplicación se vuelve más difícil de razonar ya que tienes que prestar atención a más detalles al mismo tiempo que los que supone.
+Si te digo que `doStuff()` no es pura y sin ejecutar el código ni revisando la implementación de `doStuff()` ¿podrías estar seguro que `object` sigue siendo el mismo? la respuesta es que no puedes estar seguro, y esta inseguridad, la necesidad de correr el código o de revisar cada detalle agrega carga cognitiva y complejidad ya que tu aplicación se vuelve más difícil de razonar ya que tienes que prestar atención a más detalles al mismo tiempo que los que se supone.
 
 ¿Que pasa si a diferencia del caso anterior te digo que `doStuff()` es pura? puedes estar seguro que `object` es `{id: 1}`, esto es simple pero poderoso, y es la principal razón del por que Redux y React nos ayudan a conseguir renderizados deterministicos, ya que trata nuestra interfaz de usuario como **el resultado de una función pura del estado de la aplicación**.
 
