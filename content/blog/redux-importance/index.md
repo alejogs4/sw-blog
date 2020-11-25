@@ -1,7 +1,7 @@
 ---
 title: Why redux is still important
 permalink: '/redux-importance'
-date: '2020-11-23T22:12:03.284Z'
+date: '2020-11-24T22:12:03.284Z'
 description: 'The tools we used shape how we think about code'
 published: true
 langKey: en
@@ -16,7 +16,7 @@ Let's begin with this Dijkstra's quote
 > the tools we train ourselves to use, and in this respect programming
 > languages have a devious influence: they shape our thinking habits.
 
-A person who has been building Java applications for a long time, could see a program as a composition of classes and packages, modeling the real world. The same idea applies to Redux, Flux and Redux came up with new ways and ideas of how frontend applications should manage its state, state management where:
+A person who has been building Java applications for a long time, might see a program as a composition of classes and packages, modeling the real world. The same idea applies to Redux, Flux and Redux came up with new ways and ideas of how frontend applications should manage its state, state management where:
 
 - Pure functions are mandatory (reducers)
 - Perform state changes throught user events (actions)
@@ -80,9 +80,9 @@ doStuff(object)
 console.log(object)
 ```
 
-If I tell you that `doStuff()` is not pure and neither executing the code nor looking at `doStuff()` implementation, could you be sure that `object` is still the same?. No, you couldn't and this need of run the code or review `doStuff()` adds cognitive load and complexity since your application it's harder to reason about when makes you pay attention to more details and values that you are supposed at the moment.
+If I tell you that `doStuff()` is not pure and neither executing the code nor looking at `doStuff()` implementation, could you be sure that `object` is still the same?. No, you couldn't and this need of run the code or see at `doStuff()` implementation adds cognitive load and complexity since your application it's harder to reason about because makes you pay attention to more details and values that you are supposed at the moment.
 
-But what happen if unlike to previous case I tell you that `doStuff()` functions it's pure? you could be sure that `object` is `{id: 1}` this is simple but powerful, and it's the main reason why Redux and React help us to get deterministic renders, given that threat UI as a **pure function of application state**.
+But what happen if unlike to previous case I tell you that `doStuff()` function it's pure? you could be sure that `object` is `{id: 1}` this is simple but powerful, and it's the main reason why Redux and React help us to get deterministic renders, given that threat UI as a **pure function of application state**.
 
 ### State changes as user events
 
@@ -115,7 +115,7 @@ function reducer(state = [], action) {
 
 There are a plenty number of libraries in Javascript ecosystem which help us to implement these patterns, but the most popular ones are RxJS and the built in node event emitter.
 
-Redux it's not the most event driven library out there but conceptually you can handle it similarly since it can be seen as an implementation of the [obsever pattern](https://refactoring.guru/design-patterns/observer) where **n** number of objects (components) are connected to the state, listening for changes there taking Redux state as a single source of truth.
+Redux it's not the most event driven library out there but conceptually you can handle it similarly since it can be seen as an implementation of the [obsever pattern](https://refactoring.guru/design-patterns/observer) where **n** number of objects (components) are connected to the state, listening for changes, taking Redux state as a single source of truth.
 
 ### Reduce coupling hidding information using selectors and action creators
 
@@ -163,7 +163,7 @@ function ProjectList() {
 
 Here we are no thinking neither about what type of change we are performing nor what extra data we need to calculate, we are simply sending the new message, which at the time it's a single detail to care about.
 
-Both selectors and action creators can be translated to other languages when we talk about accesors methods and data transformation methods, in the [ADT](https://en.wikipedia.org/wiki/Abstract_data_type#:~:text=In%20computer%20science%2C%20an%20abstract,the%20behavior%20of%20these%20operations.) world we express data structures access and the changes over those structures in an abstract way, we get data how is it got? it doesn't matter, it's not in the concern of the place where the abstraction is used, the same applies to those methods which will help us to change the data.
+Both selectors and action creators can be translated to other languages when we talk about accesors methods and data transformation methods, in the [ADT](https://en.wikipedia.org/wiki/Abstract_data_type#:~:text=In%20computer%20science%2C%20an%20abstract,the%20behavior%20of%20these%20operations.) world we express data structures access and the changes over those structures in an abstract way, we get data, how is it got? it doesn't matter, it's not in the concern of the place where the abstraction is used, the same applies to those methods which will help us to change the data.
 
 ## Conclusions
 
