@@ -312,6 +312,11 @@ a:focus {
   margin: var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);
 }
 
+.blog-post header .post-lang-link {
+  margin-bottom: var(--spacing-4);
+  display: block;
+}
+
 .blog-post header p {
   font-size: var(--fontSize-2);
   font-family: var(--font-heading);
