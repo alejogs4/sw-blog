@@ -7,8 +7,8 @@ published: true
 langKey: en
 ---
 
-In the last few years with the release of React hooks, the React commununity has made a progresively migration to more built-in state management tools,
-commonly using `useReducer` and `context`, but once Flux arquitecture was popularized by its most popular implementation (Redux) the way we developed our applications changed (hopefully for good).
+In the last few years with the release of React hooks the React commununity has made a progresively migration to more built-in state management tools,
+commonly using `useReducer` and `context` but once Flux arquitecture was popularized by its most popular implementation (Redux) the way we developed our applications changed (hopefully for good).
 
 Let's begin with this Dijkstra's quote
 
@@ -16,13 +16,13 @@ Let's begin with this Dijkstra's quote
 > the tools we train ourselves to use, and in this respect programming
 > languages have a devious influence: they shape our thinking habits.
 
-A person who has been building Java applications for a long time might see a program as a composition of classes and packages modeling the real world. A person who works with languages such as Haskell or Scalad might see an application as a composition of functions and algebraic structures which gives certain behaviours. The same idea applies to Redux, Flux and Redux came up with new ways and ideas of how frontend applications should manage its state, state management where:
+A person who has been building Java applications for a long time might see a program as a composition of classes and packages modeling the real world, a person who works with languages such as Haskell or Scalad might see an application as a composition of functions and algebraic structures which gives certain behaviours. The same idea applies to Redux, Flux and Redux came up with new ways and ideas of how frontend applications should manage its state, state management where:
 
 - Pure functions are mandatory (reducers)
 - Perform state changes throught user events (actions)
 - Reduce coupling between React components and state shape through selectors and action creators
 
-These ideas despite being at the core of Redux philoshopy, can be applied at any application even if it's not using Redux or even Javascript and at any kind of application can bring benefits and improvements in maintanibility.
+These ideas despite being at the core of Redux philoshopy can be applied at any application even if it's not using Redux or even Javascript and at any kind of application can bring benefits and improvements in maintanibility.
 
 ## Pure functions
 
@@ -60,7 +60,7 @@ test('Should add name property to passed object', () => {
 })
 ```
 
-The below test will always run as a succesful one, and being aware of this bring us the next advantage
+The below test will always run as a succesful one and being aware of this bring us the next advantage
 
 ### Reduce cognitive load and complexity
 
@@ -113,7 +113,7 @@ function reducer(state = [], action) {
 }
 ```
 
-There are a plenty number of libraries in Javascript ecosystem which help us to implement these patterns, but the most popular ones are RxJS and the built in node event emitter.
+There are a plenty number of libraries in Javascript ecosystem which help us to implement these patterns but the most popular ones are RxJS and the built in node event emitter.
 
 Redux it's not the most event driven library out there but conceptually you can handle it similarly since it can be seen as an implementation of the [obsever pattern](https://refactoring.guru/design-patterns/observer) where **n** number of objects (components) are connected to the state, listening for changes taking Redux state as a single source of truth.
 
@@ -161,7 +161,7 @@ function ProjectList() {
 }
 ```
 
-Here we are no thinking neither about what type of change we are performing nor what extra data we need to calculate, we are simply sending the new message, which at the time it's a single detail to care about.
+Here we are no thinking neither about what type of change we are performing nor what extra data we need to calculate, we are simply sending the new message which at the time it's a single detail to care about.
 
 Both selectors and action creators can be translated to other languages when we talk about accesors methods and data transformation methods, in the [ADT](https://en.wikipedia.org/wiki/Abstract_data_type#:~:text=In%20computer%20science%2C%20an%20abstract,the%20behavior%20of%20these%20operations.) world we express data structures access and the changes over those structures in an abstract way, we get data, how is it got? it doesn't matter, it's not in the concern of the place where the abstraction is used, the same applies to those methods which will help us to change the data.
 
