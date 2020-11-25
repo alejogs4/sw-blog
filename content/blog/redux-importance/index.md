@@ -22,7 +22,7 @@ A person who has been building Java applications for a long time, might see a pr
 - Perform state changes throught user events (actions)
 - Reduce coupling between React components and state shape through selectors and action creators
 
-These ideas despite being at the core of Redux philoshopy, can be applied at any application even if it's not using Redux, or even Javascript, and at any kind of application can bring benefits and improvements in maintanibility.
+These ideas despite being at the core of Redux philoshopy, can be applied at any application even if it's not using Redux or even Javascript, and at any kind of application can bring benefits and improvements in maintanibility.
 
 ## Pure functions
 
