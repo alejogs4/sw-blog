@@ -7,7 +7,7 @@ published: true
 langKey: es
 ---
 
-En los últimos años con el lanzamiento de los React hooks, la comunidad de React ha ido progresivamente migrando a soluciones de manejo de estado propias de la librería, usualmente usando `useReducer` y `context`, sin embargo cuando la arquitectura Flux fue popularizada por su implementación más popular (Redux) la forma en que desarrollamos nuestras aplicaciones cambio (espero que para bien).
+En los últimos años con el lanzamiento de los React hooks la comunidad de React ha ido progresivamente migrando a soluciones de manejo de estado propias de la librería, usualmente usando `useReducer` y `context`, sin embargo cuando la arquitectura Flux fue popularizada por su implementación más popular (Redux) la forma en que desarrollamos nuestras aplicaciones cambio (espero que para bien).
 
 Comencemos con esta frase de Dijkstra
 
@@ -115,11 +115,11 @@ function reducer(state = [], action) {
 
 Hay varias librerías en el ecosistema de Javascript que nos ayudan a implementar estos patrones, pero las más populares son RxJS y el event emitter de Nodejs.
 
-Redux en si mismo no es una librería para basarse en eventos pero conceptualmente puede manejarse de una forma similar, dado que puede ser visto como una implementación del [patron observer](https://refactoring.guru/design-patterns/observer) donde un **n** numero de objetos (componentes) están conectados al estado escuchando los cambios que este tenga, tomando al estado de Redux como una única fuente de verdad.
+Redux en si mismo no es una librería para basarse en eventos pero conceptualmente puede manejarse de una forma similar dado que puede ser visto como una implementación del [patron observer](https://refactoring.guru/design-patterns/observer) donde un **n** numero de objetos (componentes) están conectados al estado escuchando los cambios que este tenga, tomando al estado de Redux como una única fuente de verdad.
 
 ### Reduce acoplamiento ocultando información usando selectores y action creators
 
-La principal medida de una buena abstracción es que tan efectivamente esta nos oculta información, mientras mejor esto sea conseguido mejor nos podemos enfocar en una sola tarea al mismo tiempo, además ocultar información de una forma adecuada, reduce acoplamiento entre la abstracción y el lugar donde esta es usada, reduce también los lugares donde los cambios se hacen y que tan grande sera el impacto de estos cambios.
+La principal medida de una buena abstracción es que tan efectivamente esta nos oculta información, mientras mejor esto sea conseguido mejor nos podemos enfocar en una sola tarea al mismo tiempo, además ocultar información de una forma adecuada, reduce acoplamiento entre la abstracción y el lugar donde esta es usada reduce también los lugares donde los cambios se hacen y que tan grande sera el impacto de estos cambios.
 
 Selectores y action creators nos ayudan a conseguir el objetivo anterior ocultando la forma del estado y la naturaleza de los eventos.
 
@@ -144,7 +144,7 @@ Imagina que tienes que usar esta información en distintos sitios a lo largo de 
 
 ### Action creators
 
-Action creators fueron vendidos como una forma de evitar errores cuando queremos cambiar nuestro estado, sin embargo creo ese argumento puede ser desarrollado un poco más, piensa en tus componentes y cuanto ellos saben acerca de tu estado, con el mismo argumento que usamos para decir que los selectores son importantes, podemos decir lo mismo acerca de los action creators. Los action creators **ocultan** información, ocultan como nuestro estado será cambiado asi como cual es toda la información necesaria para exitosamente realizar esta actualización, este ocultamiento de información nos ayuda a pensar acerca de la información a cambiar en lugar de la naturaleza del cambio haciendo que la carga cognitiva sea más fácil de manejar y en el largo plazo haciendo estas operaciones más fáciles de mantener.
+Action creators fueron vendidos como una forma de evitar errores cuando queremos cambiar nuestro estado, sin embargo creo ese argumento puede ser desarrollado un poco más, piensa en tus componentes y cuanto ellos saben acerca de tu estado, con el mismo argumento que usamos para decir que los selectores son importantes podemos decir lo mismo acerca de los action creators. Los action creators **ocultan** información, ocultan como nuestro estado será cambiado asi como cual es toda la información necesaria para exitosamente realizar esta actualización, este ocultamiento de información nos ayuda a pensar acerca de la información a cambiar en lugar de la naturaleza del cambio haciendo que la carga cognitiva sea más fácil de manejar y en el largo plazo haciendo estas operaciones más fáciles de mantener.
 
 ```javascript
 function ProjectList() {
@@ -169,6 +169,6 @@ Tanto los selectores como los action creators pueden ser llevados a otros lengua
 
 ## Conclusiones
 
-Yo se que estos conceptos pueden ser aprendidos con otras librerías o lenguajes pero ese es exactamente el punto, Redux trajo estos conceptos y nos puso a pensar sobre ellos en nuestras aplicaciones frontend, e incluso si ahora mismo no usas Redux en tus proyectos así como yo, puedes todavía usarlos con todos los beneficios que te dan.
+Yo se que estos conceptos pueden ser aprendidos con otras librerías o lenguajes pero ese es exactamente el punto, Redux trajo estos conceptos y nos puso a pensar sobre ellos en nuestras aplicaciones frontend e incluso si ahora mismo no usas Redux en tus proyectos así como yo, puedes todavía usarlos con todos los beneficios que te dan.
 
 Espero que lo hayas disfrutado y cualquier duda o mejora déjame saber.
