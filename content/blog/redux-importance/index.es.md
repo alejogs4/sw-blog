@@ -7,7 +7,7 @@ published: true
 langKey: es
 ---
 
-En los últimos años con el lanzamiento de los React hooks, la comunidad de React ha ido progresivamente migrando a soluciones de manejo de estado propias de la librería, usualmente usando `useReducer` y `context`, sin embargo cuando la arquitectura Flux fue popularizada por su implementación más popular (Redux), la forma en que desarrollamos nuestras aplicaciones cambio (espero que para bien).
+En los últimos años con el lanzamiento de los React hooks, la comunidad de React ha ido progresivamente migrando a soluciones de manejo de estado propias de la librería, usualmente usando `useReducer` y `context`, sin embargo cuando la arquitectura Flux fue popularizada por su implementación más popular (Redux) la forma en que desarrollamos nuestras aplicaciones cambio (espero que para bien).
 
 Comencemos con esta frase de Dijkstra
 
@@ -38,7 +38,7 @@ function addNameProperty(object, name) {
 
 addNameProperty({ age: 21 }, 'Alejandro') // { age: 21, name: 'Alejandro' }
 ```
-Esta función es pura por que mientras reciba los mismos parámetros, esta función retornara el mismo valor, ademas no estamos afectando el objeto pasado por parámetro, aplicando **inmutabilidad**, el objeto no es cambiado, en base a el creamos un nuevo valor, esto es muy poderoso por dos razones.
+Esta función es pura por que mientras reciba los mismos parámetros, esta función retornara el mismo valor, ademas no estamos afectando el objeto pasado por parámetro aplicando **inmutabilidad**, el objeto no es cambiado, en base a el creamos un nuevo valor, esto es muy poderoso por dos razones.
 
 ### Facíl de probar
 
