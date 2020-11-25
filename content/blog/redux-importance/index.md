@@ -16,7 +16,7 @@ Let's begin with this Dijkstra's quote
 > the tools we train ourselves to use, and in this respect programming
 > languages have a devious influence: they shape our thinking habits.
 
-A person who has been building Java applications for a long time, might see a program as a composition of classes and packages, modeling the real world. The same idea applies to Redux, Flux and Redux came up with new ways and ideas of how frontend applications should manage its state, state management where:
+A person who has been building Java applications for a long time, might see a program as a composition of classes and packages, modeling the real world. A person who works with languages such as Haskell or Scalad might see an application as a composition of functions and algebraic structures which gives certain behaviours. The same idea applies to Redux, Flux and Redux came up with new ways and ideas of how frontend applications should manage its state, state management where:
 
 - Pure functions are mandatory (reducers)
 - Perform state changes throught user events (actions)
