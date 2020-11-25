@@ -140,11 +140,11 @@ function ProjectList() {
 }
 ```
 
-Imagina que tienes que usar esta información en distintos sitios a lo largo de tu aplicación y tristemente no estas usando selectores, si un refactor cambia la forma del estado a algo como `state.assignments`, tendrías que cambiarlo en cada uno de esos lugares, rompiendo tu aplicación por que los componentes sabían demasiado de como lucía el estado, en cambio con selectores, la forma del estado es una información que esta oculta detrás de estos selectores, haciendo los selectores un único lugar de cambio si la forma del estado cambia, haciendo tu aplicación más resiliente, fácil de mantener, refactorizar y extender.
+Imagina que tienes que usar esta información en distintos sitios a lo largo de tu aplicación y tristemente no estas usando selectores, si un refactor cambia la forma del estado a algo como `state.assignments` tendrías que cambiarlo en cada uno de esos lugares, rompiendo tu aplicación por que los componentes sabían demasiado de como lucía el estado, en cambio con selectores la forma del estado es una información que esta oculta detrás de estos selectores, haciendo los selectores un único lugar de cambio si la forma del estado cambia, haciendo tu aplicación más resiliente, fácil de mantener, refactorizar y extender.
 
 ### Action creators
 
-Action creators fueron vendidos como una forma de evitar errores cuando queremos cambiar nuestro estado, sin embargo creo ese argumento puede ser desarrollado un poco más, piensa en tus componentes y cuanto ellos saben acerca de tu estado, con el mismo argumento que usamos para decir que los selectores son importantes, podemos decir lo mismo acerca de los action creators. Los action creators **ocultan** información, ocultan como nuestro estado será cambiado asi como cual es toda la información necesaria para exitosamente realizar esta actualización, este ocultamiento de información nos ayuda a pensar acerca de la información a cambiar en lugar de la naturaleza del cambio, haciendo que la carga cognitiva sea más fácil de manejar y en el largo plazo haciendo estas operaciones más fáciles de mantener.
+Action creators fueron vendidos como una forma de evitar errores cuando queremos cambiar nuestro estado, sin embargo creo ese argumento puede ser desarrollado un poco más, piensa en tus componentes y cuanto ellos saben acerca de tu estado, con el mismo argumento que usamos para decir que los selectores son importantes, podemos decir lo mismo acerca de los action creators. Los action creators **ocultan** información, ocultan como nuestro estado será cambiado asi como cual es toda la información necesaria para exitosamente realizar esta actualización, este ocultamiento de información nos ayuda a pensar acerca de la información a cambiar en lugar de la naturaleza del cambio haciendo que la carga cognitiva sea más fácil de manejar y en el largo plazo haciendo estas operaciones más fáciles de mantener.
 
 ```javascript
 function ProjectList() {
@@ -164,7 +164,7 @@ function ProjectList() {
 
 Aqui no estamos pensando acerca de ni de que tipo de cambio estamos realizando, ni que información extra necesitamos calcular, simplemente estamos enviando el nuevo mensaje, lo cual es el único detalle que nos preocupa.
 
-Tanto los selectores como los action creators pueden ser llevados a otros lenguajes cuando hablamos de métodos de acceso y métodos para la transformación de datos, en el mundo de [ADT](https://en.wikipedia.org/wiki/Abstract_data_type#:~:text=In%20computer%20science%2C%20an%20abstract,the%20behavior%20of%20these%20operations.) nosotros modelamos el acceso a estructura de datos y los cambios sobre esas estructuras de una forma abstracta, conseguimos esa información, ¿como es conseguida? realmente no importa, el lugar donde esta abstracción es usada no le importa este detalle, y lo mismo aplica para los métodos que nos ayudan a cambiar información.
+Tanto los selectores como los action creators pueden ser llevados a otros lenguajes cuando hablamos de métodos de acceso y métodos para la transformación de datos, en el mundo de [ADT](https://en.wikipedia.org/wiki/Abstract_data_type#:~:text=In%20computer%20science%2C%20an%20abstract,the%20behavior%20of%20these%20operations.) nosotros modelamos el acceso a estructura de datos y los cambios sobre esas estructuras de una forma abstracta, conseguimos esa información, ¿como es conseguida? realmente no importa, el lugar donde esta abstracción es usada no le importa este detalle y lo mismo aplica para los métodos que nos ayudan a cambiar información.
 
 
 ## Conclusiones
